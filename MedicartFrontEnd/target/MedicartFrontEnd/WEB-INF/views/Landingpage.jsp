@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <c:set var="req" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,8 +8,8 @@
 <head>
 <title>Landingpage</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-88591">
- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script> 
+ <link href="${req}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${req}/resources/js/bootstrap.min.js"></script> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,12 +37,11 @@ ul.dropdown-lr {
 	font-size:90%;
 	height:20px;
 	}
-  
-  
+	
   </style>
 
 </head>
-<body>
+<body background="${req}/resources/img/images.png">
 <header>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
  <div class="container-fluid">
@@ -52,19 +52,18 @@ ul.dropdown-lr {
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="">MedICArt</a>
+<a class="navbar-brand" href="${req}/">MedICArt</a>
 </div>
 <div id="navbar" class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
-<li ><a href="about">ABOUT</a></li>
+<li ><a href="${req}/about">ABOUT</a></li>
 
-<li><a href="admin">Admin</a></li> 
 
  <li class=" dropdown"> 
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hashpopup="true" aria-expanded="false">PRODUCTS AVAILABLE<span class="caret"></span></a> 
 <ul class="dropdown-menu">
  <li class=" dropdown">
-<a href="${req}/viewall" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Products</a>
+<a href="${req}/viewall">All Products</a>
 </li>
 
 <li><a href="${req}/viewall/firstaid">First Aid</a></li>
@@ -81,70 +80,122 @@ ul.dropdown-lr {
    </ul>
  </li> 
 </ul>
+
+
 <ul class="nav navbar-nav navbar-right">
+
+                                       <!-- CART -->
+ <li ><a href="${req}/contact">Contact Us</a></li>
+                                       
+<li><a href="${req}/cart" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+
+<c:if test="${(not empty successmsg) || (not empty usermsg) || (not empty registermsg)}">
+
+<li><a href="${req}/logout" >Logout</a></li>    <!--Using session  -->
+
+</c:if>
+
 <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
+
+<c:if test="${(empty successmsg) && (empty usermsg) && (empty registermsg)}">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Up <span class="caret"></span></a> </c:if>
+
 <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
 <div class="col-lg-12">
-<div class="text-center"><h3><b>Register</b></h3></div>
-<form id="ajax-register-form" action="register" method=POST role="form"  autocomplete="off" >
+<div class="text-center"><h3><b>New User Register Here</b></h3></div>
+
+
+<form id="ajax-register-form" action="register" method=POST  modelAttribute="user" autocomplete="off" >
+
+
 <div class="form-group">
-<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+<input type="text" name="userName"  tabindex="1" class="form-control" placeholder="Username" >
 </div>
 <div class="form-group">
-<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+<input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" >
 </div>
 <div class="form-group">
-<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+<input type="password" name="password"  tabindex="2" class="form-control" placeholder="Password">
 </div>
+
+<div class="form-group">
+<input type="contact" name="contact"  tabindex="2" class="form-control" placeholder="Contact">
+</div>
+<div class="form-group">
+<input type="hidden" name="role"  tabindex="2" class="form-control" placeholder="Contact" value="user">
+</div>
+
 
 <div class="form-group">
 <div class="row">
 <div class="col-xs-6 col-xs-offset-3">
-<input type="submit" name="registersubmit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+<input type="submit"  tabindex="4" class="form-control btn btn-info" value=" Register Now">
 </div>
 </div>
 </div>
-<input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
 </form>
  </div>
   </ul>
    </li>
    <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+ 
+ <c:if test="${(empty successmsg) && (empty usermsg) &&(empty registermsg)}">  
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In <span class="caret"></span></a>
   <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
       <div class="col-lg-12">
         <div class="text-center"><h3><b>Log In</b></h3></div>
+        
          
-      <form id="ajax-login-form" action="login" method=POST role="form"  autocomplete="off">
+      <form id="ajax-login-form" action="validate"  method=POST >
      <div class="form-group">
      <label for="id">Email</label>
-      <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" autocomplete="off">
+      <input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" >
      </div>
+     
+     
 
 <div class="form-group">
 <label for="password">Password</label>
-  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+  <input type="password" name="password" tabindex="2" class="form-control" placeholder="Password">
      </div>
+     
+    <!--   <div class="form-group">
+<label for="contact">Contact</label>
+  <input type="hidden" name="contact" tabindex="2" class="form-control" placeholder="Contact">
+     </div>
+     
+     <div class="form-group">
+<label for="role">Role</label>
+  <input type="hidden" name="role" tabindex="2" class="form-control" placeholder="Role">
+     </div>
+     <div class="form-group">
+<label for="userName">Username</label>
+  <input type="hidden" name="userName" tabindex="2" class="form-control" placeholder="Username">
+     </div>-->
+     
+                                              <!--Using Session  -->
+    
     
      <div class="col-xs-5 pull-right">
-      <input type="submit" name="loginsubmit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log Out">
+      <input type="submit"     tabindex="4" class="form-control btn btn-success" value="Log In">
   </div>
-   <div class="col-xs-5 pull-left">
-      <input type="submit" name="logoutsubmit" id="logout-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
-  </div>
-    </div>
-   </div>
-
-       </div> 
+ 
   </form>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-			</div>
-		</div>
-	</nav>
+  
+  </c:if>
+  
+  </form>
+</div>
 
+</div>
+ </div> 
+ 
+ </div>
+ </ul>
+ </li>
+ </ul>
+</div>
+</div>
+</nav>
 </body>
 </html>

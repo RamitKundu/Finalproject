@@ -17,7 +17,7 @@ import com.niit.MedicartFrontEnd.Model.Product;
 public class ProductDaoImpl implements ProductDao{
 	
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	public List<Product> getAll() {
 		

@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,23 +22,21 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.MedicartFrontEnd.Dao.ProductDao;
 import com.niit.MedicartFrontEnd.Model.Product;
 
+
+
 @Controller
 public class ProductController {
 	
 	@Autowired
 	ProductDao productDao;
 	
-
+	@Autowired
+	HttpSession session;
 	
-	@RequestMapping("/")
-	public ModelAndView showLandingpage(){
-		ModelAndView mv=new ModelAndView("Home");
-		return mv;
-	}
 	
 	@RequestMapping("/welcomeadmin")
 	public ModelAndView showAdminProductInventory(){
-		ModelAndView mv=new ModelAndView("AdminProductInventory");
+		ModelAndView mv=new ModelAndView("forward:/viewall");
 		return mv;
 	}
 	
@@ -75,6 +74,7 @@ public class ProductController {
 	@RequestMapping(value="/productdetails")
 	public ModelAndView showall(){
 		ModelAndView mv=new ModelAndView("AdminProductsDetails");
+		
 		List<Product> obj=productDao.getAll();
 		mv.addObject("products",obj);
 		return mv;
@@ -84,6 +84,7 @@ public class ProductController {
 		ModelAndView mv=new ModelAndView("AdminProductsDetails");
 		List<Product> obj=productDao.getAll();
 		mv.addObject("products",obj);
+		
 		return mv;
 	}
 	@RequestMapping(value="/viewall/{category}")
@@ -91,6 +92,7 @@ public class ProductController {
 		ModelAndView mv=new ModelAndView("AdminProductsDetails");
 		List<Product> obj=productDao.getByCategory(cat);
 		mv.addObject("products",obj);
+		
 		return mv;
 	}
 
@@ -99,12 +101,14 @@ public class ProductController {
 		ModelAndView mv=new ModelAndView("editpage");
 	Product product=productDao.getById(id);
 	mv.addObject("pro",product);
+	
 	return mv;
 		
 	}
 	@RequestMapping(value="/update" , method=RequestMethod.POST)
 	public String update(@ModelAttribute("pro")Product product){
 		productDao.update(product);
+		
 		return  "redirect:/productdetails";
 		
 }
@@ -112,23 +116,26 @@ public class ProductController {
 	public String delete(@PathVariable("id") int id){
 		Product product=productDao.getById(id);
 		productDao.delete(product);
+		
 		return  "redirect:/productdetails";
 	}
 	
-	@RequestMapping()
-	public ModelAndView singleProductPage(@PathVariable("id")int id){
-		
+	@RequestMapping("abc/{var}")
+	public ModelAndView singleProductPage(@PathVariable("var")int var){
 		ModelAndView mv=new ModelAndView("SingleProductPage");
-		Product product=productDao.getById(id);
+		Product product=productDao.getById(var);
 		mv.addObject("pro",product);
+	
 		return mv;
-		
-		
-		
-		
 		
 	}
 	
+	@RequestMapping("/addproduct")
+	public ModelAndView addproduct(){
+		
+		ModelAndView mv=new ModelAndView("Admin");
+		return mv;
+	}
 	
 	}
 

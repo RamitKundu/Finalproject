@@ -43,6 +43,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     <tx:annotation-driven/>
 
 <bean id="productDao" class="com.niit.MedicartFrontEnd.DaoImpl.ProductDaoImpl" />
+<bean id="userDao" class="com.niit.MedicartFrontEnd.DaoImpl.UserDaoImpl" />
+<bean id="user" class="com.niit.MedicartFrontEnd.Model.User" />
+<bean id="cartDao" class="com.niit.MedicartFrontEnd.DaoImpl.CartDaoImpl" />
 
 </beans>
 

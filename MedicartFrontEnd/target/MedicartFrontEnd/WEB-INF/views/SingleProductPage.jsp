@@ -1,52 +1,95 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SingleProductPage</title>
-<style>
 
-</style>
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctp" value="${pageContext.request.contextPath}" />
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Favicons -->
+<link rel="shortcut icon" href="images/favico.ico">
+
+<title>Medicart</title>
 
 </head>
 <body>
-<div class="product">
- 
-  <header>
-    <hgroup>
-<h1>Apple iPhone 4 - 16GB</h1>
-<h4>The most amazing iPhone yet.</h4>
-</hgroup>
-</header>
- 
-  <figure>
-    <img src="http://media02.hongkiat.com/html5-single-product-page/iphone4s-3d.png">
-  </figure>
- 
-  <section>
- 
-  <p>The faster dual-core A5 chip. The 8MP camera with all-new optics also shoots 1080p HD video. And introducing Siri. It's the most amazing iPhone yet.</p>
- 
-  <details>
-   <summary>Product Features</summary>
-      <ul>
-        <li>8 mega pixel camera with full 1080p video recording</li>
-        <li>Siri voice assitant</li>
-        <li>iCloud</li>
-        <li>Air Print</li>
-        <li>Retina display</li>
-        <li>Photo and video geotagging</li>
-      </ul>
-  </details>
- 
-  <button>Buy Now</button>
- 
-  </section>
- 
-</div>
+	<%@include file="Landingpage.jsp"%>
+
+	<h5>${b4cart}</h5>
 
 
 
+	<div class="container-fluid">
+
+		<div class="content-wrapper">
+
+			<div class="item-container">
+
+				<div class="container">
+
+
+					<div class="row featurette">
+
+						<div class="col-md-5">
+							<div>
+								<a id="item-1" class="service1-item"> <img alt=""
+									src="${req}/resources/img/product/${pro.id}.png" alt="xyz"
+									height="400" width="350" class="img thumbnail"
+									class="img-responsive" style="width:auto" style= "heightauto></img>
+
+								</a>
+							</div>
+
+
+
+							<div class="btn-group wishlist ">
+
+								</center>
+							</div>
+
+						</div>
+
+
+						<div class="col-md-5 ">
+							<div style="float: right">
+								<h2>Product Name:</h2>
+								<h2 class="featurette-heading"
+									style="color: black; font-weight: bold;">
+									<i><b>${pro.productName}</b></i><span class="text-muted"> </span>
+								</h2>
+								<h2>Product Details: </h2>
+								<p class="lead" style="color: solid balck; font-size: 20px">${pro.productDescription}</p>
+                                
+                                <h2>Product Price: </h2>
+								<p class="lead" style="color: black; font-weight: normal">${pro.productPrice}</p>
+								<hr>
+
+								<h2>Product Quantity:</h2>
+								<form id="addToCart" action="${req}/myCart/${pro.id}"
+									method="post">
+									<select name="productQuantity">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select> <input type="submit" value="Add to cart"
+										class="btn btn-primary">
+									<button type="button" float: right; class="btn btn-danger"
+										style="font-size: 12px">Buy Now</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<%@include file="Footer.jsp"%>
 </body>
+
+
 </html>

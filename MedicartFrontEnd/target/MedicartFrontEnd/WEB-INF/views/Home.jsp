@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <c:set var="req" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Medicart</title>
- <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script> 
+ <link href="${req}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${req}/resources/js/bootstrap.min.js"></script> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-body {
-   background-color:#D5F5E3  ;
-}
+
+
 .container {
     margin-top: 20px;
 }
@@ -99,6 +100,12 @@ body {
     background-color: #fff;
     border-color: #fff;
 }
+.header-text h2 span{
+background-color: rgba(0,0,0,0);
+}
+.header-text h3 span{
+background-color: rgba(0,0,0,0);
+}
 
 </style>
 <%@ include file="Landingpage.jsp" %>
@@ -108,7 +115,14 @@ body {
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 text-center"><h2>Be sure to visit our online store</h2></div>
+        <div class="col-xs-12 text-center"><h2>Be sure to visit our online store</h2>
+        
+        <!-- Show user after validation -->
+<small><b>${successmsg}</b></small>
+<small><b>${registermsg}</b></small>
+<small><b>${usermsg}</b></small>
+<small><b>${invalid}</b></small>
+</div>
     </div>
 </div>
    </header>  
@@ -142,7 +156,7 @@ body {
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="resources/img/7.png" alt="Second slide">
+			    	<img src="resources/img/10.png" alt="Second slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -159,7 +173,7 @@ body {
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="resources/img/2.png" alt="Third slide">
+			    	<img src="resources/img/8.png" alt="Third slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -180,9 +194,46 @@ body {
 			
 		</div><!-- /carousel -->
 	</div>
-</div>  
-<div id="footer">
-&copy; 2017 &nbsp   Medicart.com.  &nbsp   All rights reserved
+</div> 
+
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="${req}/abc/${pro}" target="_parent">
+          <img src="resources/img/nutrigen.png" alt="Nutrigen" style="width:100%">
+          <div class="caption">
+            <p><b>Discount offers on display</b></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="${req}/abc/${pro}" target="_parent">
+          <img src="resources/img/vitaminD3.png" alt="Vitamin" style="width:100%">
+          <div class="caption">
+            <p><b>Discount offers on display</b></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="${req}/abc/${pro.id}" target="_parent">
+          <img src="resources/img/slim.png" alt="SlimMom" style="width:100%">
+          <div class="caption">
+            <p><b>Discount offers on display</b></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+&nbsp
+&nbsp 
+<%@ include file="Footer.jsp" %>
 </div>
 </body>
 </html>
