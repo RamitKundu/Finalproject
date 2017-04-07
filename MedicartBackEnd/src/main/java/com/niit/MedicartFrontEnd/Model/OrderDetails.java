@@ -4,37 +4,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-public class Product {
-	
+public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int orderId;
+	private String email;
+	private int productId;
 	private String productName;
 	private double productPrice;
-	private String productDescription;
+	private double totalPrice;
+	private int quantity;
 	private String productCategory;
-
-	@Transient
-	MultipartFile file;
-	
-	
-	public MultipartFile getFile() {
-		return file;
+	public int getOrderId() {
+		return orderId;
 	}
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
 	}
-	
-	public int getId() {
-		return id;
+	public String getEmail() {
+		return email;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getProductName() {
 		return productName;
@@ -48,11 +47,17 @@ public class Product {
 	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
-	public String getProductDescription() {
-		return productDescription;
+	public double getTotalPrice() {
+		return totalPrice;
 	}
-	public void setProductDescription(String productDescription) {
-		this.productDescription = productDescription;
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	public String getProductCategory() {
 		return productCategory;
@@ -60,5 +65,8 @@ public class Product {
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
 	}
+	
+	
+	
 
 }

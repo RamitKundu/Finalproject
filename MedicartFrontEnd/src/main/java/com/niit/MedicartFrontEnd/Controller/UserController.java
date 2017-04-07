@@ -47,15 +47,16 @@ public class UserController {
 				
 				ModelAndView mv=new ModelAndView("AdminProductInventory");
 				mv.addObject("isAdmin", "true");
-				session.setAttribute("successmsg", "Welcome to MedICArt "  + user.getUserName());
+				session.setAttribute("successmsg", "Welcome  "  + user.getUserName());
 				
 				return mv;	
 			}
 			else{
 				ModelAndView mv=new ModelAndView("Home");
 				
-				session.setAttribute("usermsg", "Welcome to MedICArt "  + user.getUserName());
+				session.setAttribute("usermsg", "Welcome  "  + user.getUserName());
 				session.setAttribute("useremail", user.getEmail());
+			
 				
 				return mv;
 			}

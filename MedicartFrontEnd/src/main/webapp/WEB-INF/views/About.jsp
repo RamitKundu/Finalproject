@@ -19,9 +19,13 @@
 
 <h2>About Us</h2>
 <hr>
-<h1>Under processing...........</h1>
-
-
+<h1><i><b>Who we are?</i></h1></b>
+<br>
+<p><strong>MedICArt</strong>,  one of India's most trusted online pharmacy, with over 2 years experience in dispensing quality medicines. At <strong>MediCart.com</strong>, we help you look after your own health effortlessly as well as take care of loved ones wherever they may reside in India. You can buy and send medicines from any corner of the country - with just a few clicks of the mouse.</p> 
+<br>
+<h1><i><b>What we do?</i></h1></b>
+<br>
+<p>At <strong>MedICArt.com</strong>, we make a wide range of prescription medicines and other health products conveniently available all across India. Even second and third tier cities and rural villages can now have access to the latest medicines. Since we also offer generic alternatives to most medicines, online buyers can expect significant savings.</p>
 </center>
 <%@ include file="Footer.jsp" %>
 </body>

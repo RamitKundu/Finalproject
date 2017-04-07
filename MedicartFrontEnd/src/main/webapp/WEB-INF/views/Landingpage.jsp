@@ -31,6 +31,7 @@ ul.dropdown-lr {
 	.dropdown-lr label {
 		color: #eee;
 	}
+	
 	#footer{
 	padding-left:50px;
 	text-align:center;
@@ -71,7 +72,6 @@ ul.dropdown-lr {
 <li><a href="${req}/viewall/womenscare">Womens Care</a></li>
 <li><a href="${req}/viewall/prescriptiondrugs">Prescription Drugs</a></li>
 <li><a href="${req}/viewall/fitness">Fitness</a></li>
-<li><a href="${req}/viewall/suppliments">Suppliments</a></li>
 <li><a href="${req}/viewall/mothercare">Mother Care</a></li>
 <li><a href="${req}/viewall/baby">Baby & Infants</a></li>
 <li><a href="${req}/viewall/seniorcare">Senior Care</a></li>
@@ -84,10 +84,15 @@ ul.dropdown-lr {
 
 <ul class="nav navbar-nav navbar-right">
 
+<li style=color:#ffffff;><small><b>${successmsg}</b></small>
+<small><b>${registermsg}</b></small>
+<small><b>${usermsg}</b></small>
+<small><b>${invalid}</b></small></li>
+
                                        <!-- CART -->
  <li ><a href="${req}/contact">Contact Us</a></li>
                                        
-<li><a href="${req}/cart" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+<c:if test="${(not empty usermsg) || (not empty registermsg) }"><li><a href="${req}/cart" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li></c:if>
 
 <c:if test="${(not empty successmsg) || (not empty usermsg) || (not empty registermsg)}">
 
@@ -105,26 +110,33 @@ ul.dropdown-lr {
 <div class="text-center"><h3><b>New User Register Here</b></h3></div>
 
 
-<form id="ajax-register-form" action="register" method=POST  modelAttribute="user" autocomplete="off" >
+<form id="ajax-register-form" action="${req}/register" method=POST  modelAttribute="user" autocomplete="off" >
 
 
 <div class="form-group">
-<input type="text" name="userName"  tabindex="1" class="form-control" placeholder="Username" >
+<input type="text" name="userName"  tabindex="1" class="form-control" placeholder="Username" required >
 </div>
 <div class="form-group">
-<input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" >
+<input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" required >
 </div>
 <div class="form-group">
-<input type="password" name="password"  tabindex="2" class="form-control" placeholder="Password">
+<input type="password" name="password"  tabindex="2" class="form-control" placeholder="Password" required >
 </div>
 
 <div class="form-group">
-<input type="contact" name="contact"  tabindex="2" class="form-control" placeholder="Contact">
-</div>
-<div class="form-group">
-<input type="hidden" name="role"  tabindex="2" class="form-control" placeholder="Contact" value="user">
+<input type="number" name="contact"  tabindex="2" class="form-control" placeholder="Contact" required >
 </div>
 
+<div class="form-group">
+<input type="text" name="address"  tabindex="2" class="form-control" placeholder="Address" required >
+</div>
+
+<div class="form-group">
+<input type="text" name="state"  tabindex="2" class="form-control" placeholder="State" required >
+</div>
+<div class="form-group">
+<input type="number" name="pin"  tabindex="2" class="form-control" placeholder="Pin Code" required >
+</div>
 
 <div class="form-group">
 <div class="row">
@@ -146,17 +158,17 @@ ul.dropdown-lr {
         <div class="text-center"><h3><b>Log In</b></h3></div>
         
          
-      <form id="ajax-login-form" action="validate"  method=POST >
+      <form id="ajax-login-form" action="${req}/validate"  method=POST >
      <div class="form-group">
      <label for="id">Email</label>
-      <input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" >
+      <input type="email" name="email"  tabindex="1" class="form-control" placeholder="Email" required >
      </div>
      
      
 
 <div class="form-group">
 <label for="password">Password</label>
-  <input type="password" name="password" tabindex="2" class="form-control" placeholder="Password">
+  <input type="password" name="password" tabindex="2" class="form-control" placeholder="Password" required >
      </div>
      
     <!--   <div class="form-group">

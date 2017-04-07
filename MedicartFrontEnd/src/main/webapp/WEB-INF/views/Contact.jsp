@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+     <c:set var="req" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Contact</title>
 <%@ include file="Landingpage.jsp" %>
 <style>
 
@@ -33,13 +36,13 @@ font-size: 24px;
     <div class="row">
         <div class="col-md-8">
             <div class="well well-sm">
-                <form>
+                <form action="${req}/contact" modelAttribute="c" method="POST">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" name="name" />
                         </div>
                         <div class="form-group">
                             <label for="email">
@@ -47,7 +50,7 @@ font-size: 24px;
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" name="email"/></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
@@ -69,8 +72,8 @@ font-size: 24px;
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
+                        <input type="submit" class="btn btn-primary pull-right" id="btnContactUs" value="Send Message" />
+                            
                     </div>
                 </div>
                 </form>
@@ -80,17 +83,14 @@ font-size: 24px;
             <form>
             <legend><span class="glyphicon glyphicon-globe"></span>Our office</legend>
             <address>
-                <strong>Twitter, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
+                <strong>MedICArt, Inc.</strong><br>
+                P-252,C.I.T. Road<br>
+               Kankurgachi,Kolkata-700054 <br>
                 <abbr title="Phone">
                     P:</abbr>
-                (123) 456-7890
+                (+91) 8017414077
             </address>
-            <address>
-                <strong>Full Name</strong><br>
-                <a href="mailto:#">first.last@example.com</a>
-            </address>
+            
             </form>
         </div>
     </div>

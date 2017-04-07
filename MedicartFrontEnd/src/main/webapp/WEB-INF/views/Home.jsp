@@ -115,13 +115,10 @@ background-color: rgba(0,0,0,0);
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 text-center"><h2>Be sure to visit our online store</h2>
+        <div class="col-xs-12 text-center"> <b>M &nbsp e &nbsp d &nbsp I &nbsp C &nbsp A &nbsp r &nbsp t</b></h2>
         
         <!-- Show user after validation -->
-<small><b>${successmsg}</b></small>
-<small><b>${registermsg}</b></small>
-<small><b>${usermsg}</b></small>
-<small><b>${invalid}</b></small>
+
 </div>
     </div>
 </div>
@@ -201,7 +198,7 @@ background-color: rgba(0,0,0,0);
   <div class="row">
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="${req}/abc/${pro}" target="_parent">
+        <a href="${req}/abc/1298" target="_parent">
           <img src="resources/img/nutrigen.png" alt="Nutrigen" style="width:100%">
           <div class="caption">
             <p><b>Discount offers on display</b></p>
@@ -211,7 +208,7 @@ background-color: rgba(0,0,0,0);
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="${req}/abc/${pro}" target="_parent">
+        <a href="${req}/abc/1299" target="_parent">
           <img src="resources/img/vitaminD3.png" alt="Vitamin" style="width:100%">
           <div class="caption">
             <p><b>Discount offers on display</b></p>
@@ -221,7 +218,7 @@ background-color: rgba(0,0,0,0);
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="${req}/abc/${pro.id}" target="_parent">
+        <a href="${req}/abc/1301" target="_parent">
           <img src="resources/img/slim.png" alt="SlimMom" style="width:100%">
           <div class="caption">
             <p><b>Discount offers on display</b></p>

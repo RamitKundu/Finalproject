@@ -64,7 +64,7 @@ padding:5px;
 <td><a href="${req}/edit/${pr.id}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a></td>
 <td><a href="${req}/delete/${pr.id}" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a></td>
 </c:if>
-<td><a href="${req}/abc/${pr.id}" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> View</a></td>
+<td><a href="${req}/abc/${pr.id}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span> View</a></td>
 </tr>
 </c:forEach>
 </tr>

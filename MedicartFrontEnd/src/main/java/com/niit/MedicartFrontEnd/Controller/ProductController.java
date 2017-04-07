@@ -137,6 +137,13 @@ public class ProductController {
 		return mv;
 	}
 	
+	@RequestMapping("/gotoadmin")
+	public ModelAndView gotoadmin(){
+		
+		ModelAndView mv=new ModelAndView("Home");
+		return mv;
+	}
+	
 	}
 
 

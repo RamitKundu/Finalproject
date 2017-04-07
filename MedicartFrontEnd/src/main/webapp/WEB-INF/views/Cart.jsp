@@ -74,7 +74,7 @@
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-							<img src="${req}/resources/img/product/${p.productId}.png"  height="100px" width="100px" alt="" class="img-responsive"/>
+							<img src="${req}/resources/img/product/${p.productId}.png"  height="100px" width ="100px" alt="" class="img-responsive"/>
 									<div class="col-sm-10">
 										
 										
@@ -85,10 +85,10 @@
 							<td data-th="Quantity">${p.productQuantity}</td>
 								
 							
-							<td data-th="Total" class="text-center">${p.productPrice}</td>
+							<td data-th="SubTotal" class="text-center">${p.totalPrice}</td>
 							<td class="actions" data-th="">
 								
-								<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>								
+								<a href="${req}/deletes/${p.cartId}" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a>							
 							</td>
 							</tr>
 							</c:forEach>
@@ -98,13 +98,13 @@
 					
 					<tfoot>
 						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
+							<td class="text-center"><strong>${grandtotal}</strong></td>
 						</tr>
 						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><a href="${req}/gotoadmin" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td class="hidden-xs text-center"><strong>Total:${grandtotal}</strong></td>
+							<td><a href="${req}/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
 				</table>

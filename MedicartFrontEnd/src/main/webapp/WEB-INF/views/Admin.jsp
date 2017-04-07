@@ -100,13 +100,13 @@ color: white;
 				<div class="main-login main-center">
 				<center><h5>Insert Product Details</h5></center>
 				
-					<form action="adminproduct"  method="post" modelAttribute="pro" enctype="multipart/form-data" >
+					<form action="${req}/adminproduct"  method="post" modelAttribute="pro" enctype="multipart/form-data" >
 						
 						<div class="form-group">
 							<label  class="cols-sm-2 control-label">Product Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<input type="text" class="form-control" name="productName"  placeholder="Enter Product Name"/>
+									<input type="text" class="form-control" name="productName"  placeholder="Enter Product Name" required />
 								</div>
 							</div>
 						</div>
@@ -116,7 +116,7 @@ color: white;
 							<div class="cols-sm-10">
 								<div class="input-group">
 									
-									<input type="text" class="form-control" name="productPrice"   placeholder="Enter Product Price"/>
+									<input type="text" class="form-control" name="productPrice"   placeholder="Enter Product Price" required />
 								</div>
 							</div>
 						</div>
@@ -126,7 +126,7 @@ color: white;
 							<div class="cols-sm-10">
 								<div class="input-group">
 									
-									<input type="text" class="form-control" name="productDescription"   placeholder="Enter Product Description"/>
+									<input type="text" class="form-control" name="productDescription"   placeholder="Enter Product Description" required />
 								</div>
 							</div>
 						</div>
@@ -136,15 +136,15 @@ color: white;
 							<div class="cols-sm-10">
 								<div class="input-group">
 							
-									<input type="radio" name="productCategory" value="firstaid"> FirstAid<br>
-                                     <input type="radio" name="productCategory" value="menscare"">MensCare<br>
-                                     <input type="radio" name="productCategory" value="womenscare">WomensCare<br>
-                                     <input type="radio" name="productCategory" value="prescriptiondrugs">PrescriptionDrugs<br>
-                                     <input type="radio" name="productCategory" value="fitness">Fitness<br>
-                                     <input type="radio" name="productCategory" value="suppliments">Suppliments<br>
-                                     <input type="radio" name="productCategory" value="mothercare">MotherCare<br>
-                                     <input type="radio" name="productCategory" value="baby">Baby<br>
-                                     <input type="radio" name="productCategory" value="seniorcare">SeniorCare<br>
+									<input type="radio" name="productCategory" value="firstaid" required > FirstAid<br>
+                                     <input type="radio" name="productCategory" value="menscare" required >MensCare<br>
+                                     <input type="radio" name="productCategory" value="womenscare" required >WomensCare<br>
+                                     <input type="radio" name="productCategory" value="prescriptiondrugs" required>PrescriptionDrugs<br>
+                                     <input type="radio" name="productCategory" value="fitness" required>Fitness<br>
+                                     
+                                     <input type="radio" name="productCategory" value="mothercare" required>MotherCare<br>
+                                     <input type="radio" name="productCategory" value="baby" required>Baby<br>
+                                     <input type="radio" name="productCategory" value="seniorcare" required>SeniorCare<br>
 								</div>
 							</div>
 						</div>

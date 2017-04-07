@@ -46,6 +46,12 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 <bean id="userDao" class="com.niit.MedicartFrontEnd.DaoImpl.UserDaoImpl" />
 <bean id="user" class="com.niit.MedicartFrontEnd.Model.User" />
 <bean id="cartDao" class="com.niit.MedicartFrontEnd.DaoImpl.CartDaoImpl" />
+<bean id="product" class="com.niit.MedicartFrontEnd.Model.Product" />
+
+<bean id="shippingDao" class="com.niit.MedicartFrontEnd.DaoImpl.ShippingDaoImpl" />
+<bean id="contactDao" class="com.niit.MedicartFrontEnd.DaoImpl.ContactDaoImpl" />
+<bean id="od" class="com.niit.MedicartFrontEnd.DaoImpl.OrderDaoImpl" />
+
 
 </beans>
 

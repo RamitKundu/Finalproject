@@ -13,14 +13,27 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+function myFunction() {
+    alert("Hello\nPlease Login before adding to Cart");
+}
+</script>
+ 
+  <script>
+function myFunction1() {
+    alert("Hello\nPlease Login before Buying ");
+}
+</script>
+
 
 </head>
 <body>
 
 <%@include file="Landingpage.jsp"%>
 
-	<h5>${b4cart}</h5>
-
+	
+<h3>${cartmsg}</h3>
 
 
 	<div class="container-fluid">
@@ -65,21 +78,28 @@
 								<p class="lead" style="color: solid balck; font-size: 20px">${pro.productDescription}</p>
                                 
                                 <h2>Product Price: </h2>
-								<p class="lead" style="color: black; font-weight: normal">${pro.productPrice}</p>
+								<p class="lead" style="color: black; font-weight: normal"> &#8377 ${pro.productPrice}</p>
 								<hr>
-
-								<h2>Product Quantity:</h2>
+								<c:if test="${empty successmsg}"><h2>Product Quantity:</h2>
+								
 								<form id="addToCart" action="${req}/myCart/${pro.id}"
 									method="post">
 									<select name="productQuantity">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
-									</select> <input type="submit" value="Add to cart"
-										class="btn btn-primary">
-									<button type="button" float: right; class="btn btn-danger"
-										style="font-size: 12px">Buy Now</button>
+									</select>
+									<c:if test="${empty useremail }">
+									 <input type="submit" value="Add to cart"
+										class="btn btn-primary" onclick="myFunction()" >
+										<!-- USE IT LATER<a href="${req}/billingAddress/${pro.id}" class="btn btn-info" onclick="myFunction1()" allign="right" >BuyNow</a>-->
+										</c:if>
+										<c:if test="${not empty useremail }">
+									 <input type="submit" value="Add to cart"
+										class="btn btn-primary"  >
+	    <a href="${req}/billingpage/${pro.id}" class="btn btn-info" allign="right" >BuyNow</a></c:if>   
 								</form>
+								</c:if>
 							</div>
 						</div>
 					</div>

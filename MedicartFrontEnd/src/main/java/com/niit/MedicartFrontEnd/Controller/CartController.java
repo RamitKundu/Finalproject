@@ -64,9 +64,13 @@ public class CartController {
 				 cart.setProductQuantity(quantity);
 				 cart.setTotalPrice((product.getProductPrice())*(quantity));
 				 cart.setEmail(email);
+				 
 				 cartDao.add(cart);
+				 double sum=cartDao.getGrandTotal(email);
+				
 				 ModelAndView mv=new ModelAndView("forward:/cart");
 				 mv.addObject("successcart", "Products added successfully to cart");
+				 mv.addObject("grandtotal", sum);
 				 return mv;
 			
 			}
@@ -74,19 +78,29 @@ public class CartController {
 		}
 		
 }
+
 @RequestMapping("/cart")
 	public ModelAndView showcart(){
 		
 		ModelAndView mv=new ModelAndView("Cart");
 		String email= session.getAttribute("useremail").toString();
 		List<Cart> obj=cartDao.getCartbyUser(email);
+		double sum=cartDao.getGrandTotal(email);
+		 mv.addObject("grandtotal", sum);
 		mv.addObject("showallcart", obj);
+		
 		return mv;
-		
-		
-		
-		
+
 	}
+
+@RequestMapping("/deletes/{cartId}")
+public ModelAndView deletecart(@PathVariable("cartId")int id){
+	ModelAndView mv=new ModelAndView("forward:/cart");
+	Cart cart=cartDao.getByCartId(id);
+	cartDao.delete(cart);
+	
+	return mv;
+}
 	
 
 }

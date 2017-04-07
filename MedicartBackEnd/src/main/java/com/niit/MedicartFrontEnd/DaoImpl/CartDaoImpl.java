@@ -60,5 +60,10 @@ public class CartDaoImpl implements CartDao{
 		return obj;
 	 
 	}
+
+	public double getGrandTotal(String email) {
+		double sum=(Double) sessionFactory.getCurrentSession().createQuery("select sum(totalPrice) from Cart where email='"+email+"'").uniqueResult();
+		return sum;
+	}
 	
 	}

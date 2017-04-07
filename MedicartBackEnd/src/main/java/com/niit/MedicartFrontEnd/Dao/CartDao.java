@@ -11,7 +11,7 @@ public interface CartDao {
 	public void delete(Cart cart);
 	public Cart getByCartId(int cartId);
 	public boolean isForValidSameProduct(String email,int productId);
-	
+	public double getGrandTotal(String email);
 	public List<Cart> getCartbyUser(String email);
 
 }
