@@ -50,7 +50,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 <bean id="shippingDao" class="com.niit.MedicartFrontEnd.DaoImpl.ShippingDaoImpl" />
 <bean id="contactDao" class="com.niit.MedicartFrontEnd.DaoImpl.ContactDaoImpl" />
-<bean id="od" class="com.niit.MedicartFrontEnd.DaoImpl.OrderDaoImpl" />
+<bean id="od" class="com.niit.MedicartFrontEnd.DaoImpl.OrderDaoImpl" /> 
 
 
 </beans>

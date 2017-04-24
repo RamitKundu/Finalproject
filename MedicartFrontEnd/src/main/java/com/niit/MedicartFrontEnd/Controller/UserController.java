@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.MedicartFrontEnd.Dao.UserDao;
@@ -23,8 +24,6 @@ public class UserController {
 	
 	@Autowired
 	UserDao userDao;
-	
-	
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(@ModelAttribute("user")User user){
 		userDao.add(user); 
@@ -88,6 +87,4 @@ public class UserController {
 	 
 	 }
 	 
-	 
-
 }

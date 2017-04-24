@@ -137,6 +137,9 @@ ul.dropdown-lr {
 <div class="form-group">
 <input type="number" name="pin"  tabindex="2" class="form-control" placeholder="Pin Code" required >
 </div>
+<div class="form-group">
+<input type="hidden" name="role"  tabindex="2" value="user">
+</div>
 
 <div class="form-group">
 <div class="row">

@@ -50,6 +50,7 @@ public class BillingAddress {
 	ShippingAddress sp;
 	
 	int shippingId;
+	int orderId;
 	int productId;
 	Product pp;
 	OrderDetails or;
@@ -86,7 +87,7 @@ public class BillingAddress {
 		ModelAndView mv=new ModelAndView("Order");
 		String email=session.getAttribute("useremail").toString();
 		
-		if(productId==0){
+		if(orderId==0){
 
 		List<Cart>obj=cartDao.getCartbyUser(email);
 		mv.addObject("allcart",obj);
@@ -99,7 +100,10 @@ public class BillingAddress {
 		else{
 			
 			mv.addObject("p","msg is written to make p not empty"); 
-			mv.addObject("c",od.getByOrderId(productId));
+			int oid=or.getOrderId();
+			mv.addObject("c",od.getByOrderId(orderId));
+			or.getQuantity();
+			orderId = 0;
 			
 			//or.getQuantity();
 		
